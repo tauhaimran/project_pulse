@@ -1,0 +1,56 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Compiled files
+dist/
+build/
+.cache/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Lint files
+.eslintcache
+
+# MongoDB dump files
+dump/
+
+# Temporary files
+*.swp
+*.tmp
+*.bak
+
+# Frontend build artifacts
+frontend/node_modules/
+frontend/build/
+
+# Backend build artifacts
+backend/node_modules/
+
+# Misc
+*.lock
