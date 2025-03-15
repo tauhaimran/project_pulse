@@ -1,6 +1,21 @@
 PORTS: backend: 5000
 
+GIT COMMANDS:
+push to git
+        git checkout -b minahil-branch (create your own branch, name yours nabeed-branch or tauha-branch)
+        git fetch origin  
+        git pull origin main  (pull from main so u have the latest changes before pushing in your work)
+        git add . (stage the changes)
+        git commit -m "developed a makeshit ui that shows tasks in the db"  (commit your change. PLEASE add a meaningful commit message)
+        git push origin minahil-branch (push to your branch)
+        go to github -> compare and pull -> creat pull request -> merge pull request -> confirm merge
 
+pulling from git
+        git checkout main (stwitch to main)
+        git fetch origin (to avoid conflicts)
+        git pull origin main
+
+current structure:
 backened
     models
         taskModel.js
