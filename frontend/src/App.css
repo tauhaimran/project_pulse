@@ -1,0 +1,72 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* App container */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+.header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Task list */
+.task-list {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.task-list li {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.task-list li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Status badge */
+.status {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.status.pending {
+  background-color: #ff9800;
+}
+
+.status.completed {
+  background-color: #4CAF50;
+}
+
+.status.in-progress {
+  background-color: #2196F3;
+}
