@@ -51,6 +51,6 @@ This project is built using the **MERN** stack, which includes:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/task-management-tool.git
+   git clone https://github.com/tauhaimran/project_pulse.git
 # project_pulse
  Task Management & Team Collaboration Tool | MERN
