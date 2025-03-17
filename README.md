@@ -54,25 +54,23 @@ This project is built using the **MERN** stack, which includes:
    git clone https://github.com/tauhaimran/project_pulse.git
 2. Install Backend Dependencies
    ```
-   2.1 cd backend
-   2.2 npm install
+   cd backend
+   npm install
    
 3. Setting up Environment Variable for Mongo
    ```
-   3.1 make a file called .env
-   3.2 paste the code into the file created
-       MONGO_URI=mongodb://localhost:27017/taskmanagement
-       PORT=5000
+   touch .env
+   echo -e "MONGO_URI=mongodb://localhost:27017/taskmanagement\nPORT=5000" >> .env
 4. Start Backend Server
    ```
-   4.1 npm start
+   npm start
 
 5. Install Frontend Dependencies
    ```
-   5.1 cd ../frontend
-   5.2 npm install
+   cd ../frontend
+   npm install
 6. Start Frontend App
    ```
-   6.1 npm start 
+   npm start 
 # project_pulse
  Task Management & Team Collaboration Tool | MERN
