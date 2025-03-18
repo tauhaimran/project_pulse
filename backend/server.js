@@ -75,3 +75,12 @@ dotenv.config();
 // Import the userRoutes
 const authRoutes = require('./routes/userRoutes');
 app.use('/api/auth', authRoutes);
+
+// Import the projectRoutes
+const taskRoutes = require('./routes/taskRoutes');
+app.use('/api/tasks', taskRoutes);
+
+
+// Import the commentRoutes
+const commentRoutes = require('./routes/commentRoutes');
+app.use('/api/comments', commentRoutes);

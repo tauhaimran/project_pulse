@@ -5,11 +5,11 @@ const taskSchema = new mongoose.Schema({
     mainAssignee: { type: String, required: true },
     taskID: { type: String, required: true, unique: true },
     taskName: { type: String, required: true },
-    status: { type: String, default: "Pending" },
+    Status: { type: String, default: "Pending" },
     sprintNumber: { type: String },
-    documents: [{ type: String }],
+    Documents: [{ type: String }],
     comments: [{ type: String }],
-    deadline: { type: Date, required: true }
+    Deadline: { type: Date, required: true }
 });
 
 module.exports = mongoose.model('Task', taskSchema);
