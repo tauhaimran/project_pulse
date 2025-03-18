@@ -1,9 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const { registerUser, loginUser } = require('../controllers/userController');
+import express from 'express';
+import { loginUser } from '../controllers/userController.js';
 
-router.post('/register', registerUser);
+const router = express.Router();
+
 router.post('/login', loginUser);
 
-module.exports = router;
-// This code snippet defines the user routes using the express.Router() method. It imports the registerUser and loginUser functions from the userController.js file and assigns them to the corresponding routes using the router.post() method. Finally, it exports the router for use in the main app.js file.
+export default router;
+// This file defines the routes for user-related operations in the application.
+// It imports the loginUser function from the userController.js file and sets up a POST route for the /login endpoint.

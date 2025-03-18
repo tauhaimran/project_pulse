@@ -1,16 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const { addComment, removeComment, viewComments } = require('../controllers/commentController');
-const { verifyToken } = require('../middlewares/authMiddleware');
+import mongoose from 'mongoose';
 
-// Adding a Comment
-router.post('/add', verifyToken, addComment);
+const commentSchema = new mongoose.Schema({
+    commentID: String,
+    madeBy: String,
+    taskID: String,
+    timeStamp: Date,
+    data: String
+});
 
-// Removing a Comment
-router.delete('/remove/:taskID/:commentID', verifyToken, removeComment);
-
-// Viewing Comments for a Task
-router.get('/view/:taskID', verifyToken, viewComments);
-
-module.exports = router;
-// Compare this snippet from backend/models/Comment.js:
+export const Comment = mongoose.model('Comment', commentSchema);

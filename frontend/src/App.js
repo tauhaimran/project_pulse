@@ -1,31 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import './App.css'; // Import the styles
-import TaskList from './components/TaskList';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CommentPage from './pages/CommentPage';
 
 function App() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    axios.get('/api/tasks')
-      .then(response => {
-        console.log('Fetched tasks:', response.data); // Debugging log
-        setTasks(response.data);
-      })
-      .catch(error => console.error('Error fetching tasks:', error));
-  }, []);
-  
-
-  return (
-    <div className="App">
-      <header className="header">
-        <h1>Task Management App</h1>
-      </header>
-      <main>
-        <TaskList tasks={tasks} />
-      </main>
-    </div>
-  );
+    return (
+        <Router>
+            <div>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/comments" element={<CommentPage />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

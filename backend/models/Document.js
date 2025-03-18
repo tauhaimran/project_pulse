@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const documentSchema = new mongoose.Schema({
-    taskID: { type: String, required: true },
-    documentID: { type: String, required: true, unique: true },
-    fileName: { type: String, required: true }
+    taskID: String,
+    documentID: String,
+    fileName: String
 });
 
-module.exports = mongoose.model('Document', documentSchema);
+export const Document = mongoose.model('Document', documentSchema);

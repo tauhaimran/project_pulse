@@ -5,7 +5,7 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: { // Added description field
+  description: {
     type: String,
     required: true
   },
@@ -16,4 +16,7 @@ const taskSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+// Check if the model already exists to avoid OverwriteModelError
+const Task = mongoose.models.Task || mongoose.model('Task', taskSchema);
+
+module.exports = Task;

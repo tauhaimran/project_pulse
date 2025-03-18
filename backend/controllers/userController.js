@@ -1,42 +1,13 @@
-const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
+import { User } from '../models/User.js';
 
-// Register a new user
-exports.registerUser = async (req, res) => {
+export const loginUser = async (req, res) => {
     try {
-        const { userID, name, email, role, password } = req.body;
-
-        // Hash the password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        const newUser = new User({ userID, name, email, role, password: hashedPassword });
-        await newUser.save();
-
-        res.status(201).json({ message: 'User registered successfully', user: newUser });
+        const { userID, name, email, role } = req.body;
+        const user = new User({ userID, name, email, role });
+        await user.save();
+        res.status(201).json(user);
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ error: error.message });
     }
 };
-
-// Login a user
-exports.loginUser = async (req, res) => {
-    try {
-        const { userID, password } = req.body;
-
-        const user = await User.findOne({ userID });
-        if (!user) return res.status(400).json({ message: 'User not found' });
-
-        // Compare hashed password
-        const validPassword = await bcrypt.compare(password, user.password);
-        if (!validPassword) return res.status(400).json({ message: 'Invalid password' });
-
-        // Generate JWT
-        const token = jwt.sign({ userID: user.userID, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
-
-        res.status(200).json({ message: 'Login successful', token });
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
+// This controller function handles the login operation for a user.

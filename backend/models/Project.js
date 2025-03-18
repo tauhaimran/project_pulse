@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const projectSchema = new mongoose.Schema({
-    managerID: { type: String, required: true },
-    projectID: { type: String, required: true, unique: true },
-    title: { type: String, required: true },
-    description: { type: String },
-    dueBy: { type: Date, required: true }
-}, { timestamps: true });
+    managerID: String,
+    projectID: String,
+    title: String,
+    description: String,
+    dueBy: Date
+});
 
-module.exports = mongoose.model('Project', projectSchema);
+export const Project = mongoose.model('Project', projectSchema);

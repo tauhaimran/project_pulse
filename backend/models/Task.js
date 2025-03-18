@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const taskSchema = new mongoose.Schema({
-    projectID: { type: String, required: true },
-    mainAssignee: { type: String, required: true },
-    taskID: { type: String, required: true, unique: true },
-    taskName: { type: String, required: true },
-    Status: { type: String, default: "Pending" },
-    sprintNumber: { type: String },
-    Documents: [{ type: String }],
-    comments: [{ type: String }],
-    Deadline: { type: Date, required: true }
+    projectID: String,
+    mainAssignee: String,
+    taskID: String,
+    taskName: String,
+    status: String,
+    sprintNumber: String,
+    documents: [String],
+    comments: [String],
+    deadline: Date
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+export const Task = mongoose.model('Task', taskSchema);

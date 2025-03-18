@@ -1,11 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const teamSchema = new mongoose.Schema({
-    teamID: { type: String, required: true, unique: true },
-    lead: { type: String, required: true },
-    memberCount: { type: Number, required: true },
-    members: [{ type: String }],
-    projectID: { type: String, required: true }
+    teamID: String,
+    lead: String,
+    memberCount: Number,
+    members: [String],
+    projectID: String
 });
 
-module.exports = mongoose.model('Team', teamSchema);
+export const Team = mongoose.model('Team', teamSchema);

@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
-const progressTrackerSchema = new mongoose.Schema({
-    progressID: { type: String, required: true, unique: true },
-    projectID: { type: String, required: true },
-    timeStamp: { type: Date, default: Date.now }
+const progressSchema = new mongoose.Schema({
+    progressID: String,
+    projectID: String,
+    timeStamp: Date
 });
 
-module.exports = mongoose.model('ProgressTracker', progressTrackerSchema);
+export const Progress = mongoose.model('Progress', progressSchema);
