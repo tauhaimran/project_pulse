@@ -1,17 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import CommentPage from './pages/CommentPage';
+import HomePage from './pages/HomePage';
 
 function App() {
     return (
         <Router>
-            <div>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/comments" element={<CommentPage />} />
-                </Routes>
-            </div>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+            </Routes>
         </Router>
     );
 }

@@ -1,9 +1,9 @@
 import express from 'express';
-import { createTask, updateTask } from '../controllers/taskController.js';
+import { createTask, getTasksByProjectID } from '../controllers/taskController.js';
 
 const router = express.Router();
 
-router.post('/create', createTask);
-router.put('/update/:id', updateTask);
+router.post('/', createTask);
+router.get('/:projectID', getTasksByProjectID);
 
 export default router;

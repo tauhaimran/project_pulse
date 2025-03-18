@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
-const teamSchema = new mongoose.Schema({
-    teamID: String,
-    lead: String,
-    memberCount: Number,
-    members: [String],
-    projectID: String
+const teamSchema = mongoose.Schema({
+    projectID: String,
+    teamLead: String,
+    members: [String]
 });
 
-export const Team = mongoose.model('Team', teamSchema);
+const Team = mongoose.model('Team', teamSchema);
+
+export default Team;

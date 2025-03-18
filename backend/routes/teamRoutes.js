@@ -1,9 +1,9 @@
 import express from 'express';
-import { createTeam, updateTeam } from '../controllers/teamController.js';
+import { createTeam, getTeamsByProjectID } from '../controllers/teamController.js';
 
 const router = express.Router();
 
-router.post('/create', createTeam);
-router.put('/update/:id', updateTeam);
+router.post('/', createTeam);
+router.get('/:projectID', getTeamsByProjectID);
 
 export default router;

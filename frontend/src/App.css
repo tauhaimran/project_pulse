@@ -1,72 +1,38 @@
-/* General styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
+.App {
+  text-align: center;
 }
 
-/* App container */
-.App {
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-}
-
-/* Header */
-.header {
-  background-color: #4CAF50;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
   color: white;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
 }
 
-/* Task list */
-.task-list {
-  list-style-type: none;
-  padding: 0;
-  width: 100%;
-  max-width: 600px;
+.App-link {
+  color: #61dafb;
 }
 
-.task-list li {
-  background-color: #fff;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background-color 0.2s;
-}
-
-.task-list li:hover {
-  background-color: #f1f1f1;
-}
-
-/* Status badge */
-.status {
-  font-size: 14px;
-  padding: 5px 10px;
-  border-radius: 12px;
-  color: white;
-  text-transform: uppercase;
-}
-
-.status.pending {
-  background-color: #ff9800;
-}
-
-.status.completed {
-  background-color: #4CAF50;
-}
-
-.status.in-progress {
-  background-color: #2196F3;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

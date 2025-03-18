@@ -1,20 +1,26 @@
-import { Task } from '../models/Task.js';
+import Task from '../models/Task.js';
 
+// Create a new task
 export const createTask = async (req, res) => {
+    const taskData = req.body;
+
     try {
-        const newTask = new Task(req.body);
-        await newTask.save();
-        res.status(201).json(newTask);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+        const task = new Task(taskData);
+        await task.save();
+        res.status(201).json(task);
+    } catch (error) {
+        res.status(409).json({ message: error.message });
     }
 };
 
-export const updateTask = async (req, res) => {
+// Get tasks by ProjectID
+export const getTasksByProjectID = async (req, res) => {
+    const { projectID } = req.params;
+
     try {
-        const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, { new: true });
-        res.json(updatedTask);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+        const tasks = await Task.find({ projectID });
+        res.status(200).json(tasks);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
     }
 };
