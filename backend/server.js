@@ -53,3 +53,25 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Import userRoutes
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
+
+// Import projectRoutes, taskRoutes, and commentRoutes
+const projectRoutes = require('./routes/projectRoutes');
+const taskRoutes = require('./routes/taskRoutes');
+const commentRoutes = require('./routes/commentRoutes');
+
+// Use the routes
+app.use('/api/projects', projectRoutes);
+app.use('/api/tasks', taskRoutes);
+app.use('/api/comments', commentRoutes);
+
+// Import the authRoutes
+const dotenv = require('dotenv');
+dotenv.config();
+
+// Import the userRoutes
+const authRoutes = require('./routes/userRoutes');
+app.use('/api/auth', authRoutes);

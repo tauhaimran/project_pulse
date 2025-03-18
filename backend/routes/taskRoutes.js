@@ -1,29 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Task = require('../models/taskModel');
+const { createTask, updateTask } = require('../controllers/taskController');
 
-// Get all tasks
-router.get('/', async (req, res) => {
-  try {
-    const tasks = await Task.find();
-    res.json(tasks);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
-// Create new task
-router.post('/', async (req, res) => {
-  const task = new Task({
-    title: req.body.title,
-    status: req.body.status
-  });
-  try {
-    const newTask = await task.save();
-    res.status(201).json(newTask);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
+router.post('/', createTask);
+router.put('/:taskID', updateTask);
 
 module.exports = router;
+// In this code snippet, we define two routes: / and /:taskID. We then use the createTask and updateTask functions from the taskController.js file to handle the logic for these routes. Finally, we export the router object so that it can be used in the main app.js file.
