@@ -26,9 +26,10 @@ function Login({ onLogin }) { // Accept onLogin prop
       const response = await axios.post('/api/auth/login', formData);
       console.log('Login successful:', response.data);
 
-      // Save token to localStorage
+      // Save token and user role to localStorage
       localStorage.setItem('token', response.data.token);
-      
+      localStorage.setItem('role', response.data.role); // Store user role
+
       // Call onLogin to update authentication state
       onLogin(); 
       
