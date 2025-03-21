@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const { protect, managerOnly } = require('../middleware/authMiddleware');
 
 // Register user
 router.post('/register', async (req, res) => {
@@ -89,6 +90,25 @@ router.post('/login', async (req, res) => {
     }
 });
 
-  
+router.get('/user', protect, async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id).select('-password');
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// NEW ROUTE: Get all users (for team management, managers only)
+router.get('/users', protect, managerOnly, async (req, res) => {
+  try {
+    const users = await User.find().select('_id username email role');
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ message: 'Failed to fetch users' });
+  }
+});
+
 
 module.exports = router;

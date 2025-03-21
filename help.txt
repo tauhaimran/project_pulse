@@ -22,10 +22,12 @@ backened
     models
         taskModel.js
         userModel.js
+        teamModel.js
     node_modules
     routes
         taskRoutes.js
         authRoutes.js
+        teamRoutes.js
     .env
     package.json
     package-lock.json
@@ -41,6 +43,7 @@ frontend
     src
         components
             TaskList.js
+            ManageTeams.js
             auth
                 Login.js
                 Register.js
@@ -62,4 +65,5 @@ backend -> npm install bcrypt
 
 
 NFR: hashed passwords
+     confirmation for team deletion
      
