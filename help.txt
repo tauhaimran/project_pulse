@@ -59,3 +59,7 @@ frontend
 npm install react-router-dom
 backend -> npm install bcrypt
             npm install jsonwebtoken
+
+
+NFR: hashed passwords
+     
