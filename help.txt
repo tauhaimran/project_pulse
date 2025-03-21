@@ -17,11 +17,15 @@ pulling from git
 
 current structure:
 backened
+    middleware
+        authMiddleware.js
     models
         taskModel.js
+        userModel.js
     node_modules
     routes
         taskRoutes.js
+        authRoutes.js
     .env
     package.json
     package-lock.json
@@ -37,6 +41,9 @@ frontend
     src
         components
             TaskList.js
+            auth
+                Login.js
+                Register.js
         App.css
         App.js
         App.test.js
@@ -49,3 +56,6 @@ frontend
     README.md
 
     
+npm install react-router-dom
+backend -> npm install bcrypt
+            npm install jsonwebtoken

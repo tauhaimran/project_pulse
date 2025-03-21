@@ -3,18 +3,19 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-const app = express();
 const taskRoutes = require('./routes/taskRoutes');
-const Task = require('./models/taskModel'); // Import the Task model
+const authRoutes = require('./routes/authRoutes');
+const protect = require('./middleware/authMiddleware'); // Import auth middleware
+const Task = require('./models/taskModel');
 
-app.use('/api/tasks', taskRoutes);
+const app = express();
+
+// Middleware
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI;
-
 // Connect to MongoDB
+const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -45,11 +46,16 @@ mongoose.connect(MONGO_URI, {
     await Task.insertMany(seedTasks);
     console.log('Sample tasks added to database');
   }
-}).catch(err => console.error(err));
+}).catch(err => console.error(`MongoDB connection error: ${err.message}`));
+
+// Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/tasks', protect, taskRoutes); // Protect task routes with middleware
 
 // Sample Route
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
